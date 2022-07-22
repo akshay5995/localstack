@@ -30,6 +30,7 @@ from localstack.constants import (
     KMS_URL_PATTERN,
     LIBSQLITE_AARCH64_URL,
     LOCALSTACK_MAVEN_VERSION,
+    MAVEN_REPO_URL,
     MODULE_MAIN_PATH,
     OPENSEARCH_DEFAULT_VERSION,
     OPENSEARCH_PLUGIN_LIST,
@@ -73,10 +74,9 @@ INSTALL_PATH_KMS_BINARY_PATTERN = os.path.join(INSTALL_DIR_KMS, "local-kms.<arch
 INSTALL_PATH_ELASTICMQ_JAR = os.path.join(INSTALL_DIR_ELASTICMQ, "elasticmq-server.jar")
 INSTALL_PATH_KINESALITE_CLI = os.path.join(INSTALL_DIR_NPM, "kinesalite", "cli.js")
 
-MAVEN_REPO = "https://repo1.maven.org/maven2"
 URL_LOCALSTACK_FAT_JAR = (
-    MAVEN_REPO + "/cloud/localstack/localstack-utils/{v}/localstack-utils-{v}-fat.jar"
-).format(v=LOCALSTACK_MAVEN_VERSION)
+    "{mvn_repo}/cloud/localstack/localstack-utils/{ver}/localstack-utils-{ver}-fat.jar"
+).format(ver=LOCALSTACK_MAVEN_VERSION, mvn_repo=MAVEN_REPO_URL)
 
 MARKER_FILE_LIGHT_VERSION = f"{dirs.static_libs}/.light-version"
 IMAGE_NAME_SFN_LOCAL = "amazon/aws-stepfunctions-local:1.7.9"
@@ -105,12 +105,12 @@ DDB_PATCH_URL_PREFIX = (
 )
 DDB_AGENT_JAR_URL = f"{DDB_PATCH_URL_PREFIX}/target/ddb-local-loader-0.1.jar"
 DDB_AGENT_JAR_PATH = os.path.join(INSTALL_DIR_DDB, "ddb-local-loader-0.1.jar")
-JAVASSIST_JAR_URL = f"{MAVEN_REPO}/org/javassist/javassist/3.28.0-GA/javassist-3.28.0-GA.jar"
+JAVASSIST_JAR_URL = f"{MAVEN_REPO_URL}/org/javassist/javassist/3.28.0-GA/javassist-3.28.0-GA.jar"
 JAVASSIST_JAR_PATH = os.path.join(INSTALL_DIR_DDB, "javassist.jar")
 
 # additional JAR libs required for multi-region and persistence (PRO only) support
-URL_ASPECTJRT = f"{MAVEN_REPO}/org/aspectj/aspectjrt/1.9.7/aspectjrt-1.9.7.jar"
-URL_ASPECTJWEAVER = f"{MAVEN_REPO}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
+URL_ASPECTJRT = f"{MAVEN_REPO_URL}/org/aspectj/aspectjrt/1.9.7/aspectjrt-1.9.7.jar"
+URL_ASPECTJWEAVER = f"{MAVEN_REPO_URL}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
 JAR_URLS = [URL_ASPECTJRT, URL_ASPECTJWEAVER]
 
 # kinesis-mock version
